@@ -1,3 +1,9 @@
+const board = [
+	[' ', ' ', ' '],
+	[' ', ' ', ' '],
+	[' ', ' ', ' ']
+];
+
 const printBoard = board => {
 	console.log('Current Board:');
 
@@ -5,12 +11,6 @@ const printBoard = board => {
 		console.log(board[i].join(' | ') + '\n');
 	}
 }; 
-
-var board = [
-	[' ', ' ', ' '],
-	[' ', ' ', ' '],
-	[' ', ' ', ' ']
-];
 
 printBoard(board);
 
