@@ -31,15 +31,31 @@ const generateBombBoard = (numberOfRows, numberOfColumns, numberOfBombs) => {
 		let randomRowIndex = Math.floor(Math.random() * numberOfRows);
 		let randomColumnIndex = Math.floor(Math.random() * numberOfColumns);
 
-		board[randomRowIndex][randomColumnIndex] = 'B';
+		if (board[randomRowIndex][randomColumnIndex] !== 'B') {
+			board[randomRowIndex][randomColumnIndex] = 'B';
 
-		numberOfBombsPlaced++;
-
-		// need to update to account for situation where new bomb is added
-		// to space where bomb has already been placed
+			numberOfBombsPlaced++;
+		}
 	}
 
 	return board;
+};
+
+const getNumberOfNeighborBombs = (bombBoard, rowIndex, columnIndex) => {
+	const neighborOffsets = [
+		[-1, -1],
+		[-1, 0],
+		[-1, 1],
+		[0, -1],
+		[0, 1],
+		[1, -1],
+		[1, 0],
+		[1, 1]
+	];
+
+	const numberOfRows = bombBoard.length;
+	const numberOfColumns = bombBoard[0].length;
+	let bombCounter = 0;
 };
 
 const printBoard = board => {
