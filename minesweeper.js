@@ -79,7 +79,7 @@ const flipTile = (playerBoard, bombBoard, rowIndex, columnIndex) => {
 		console.log(`Tile (${rowIndex}, ${columnIndex}) has already been flipped!`);
 		return;
 	} else if (bombBoard[rowIndex][columnIndex] === 'B') {
-		playerBoard[rowIndex][columnIndex] === 'B';
+		playerBoard[rowIndex][columnIndex] = 'B';
 	} else {
 		playerBoard[rowIndex][columnIndex] = getNumberOfNeighborBombs(bombBoard, rowIndex, columnIndex);
 	}
@@ -90,11 +90,12 @@ const printBoard = board => {
 };
 
 const playerBoard = generatePlayerBoard(3, 4);
-
 const bombBoard = generateBombBoard(3, 4, 5);
 
-console.log(`Player Board:\n${printBoard(playerBoard)}`);
-console.log(`Bomb Board:\n${printBoard(bombBoard)}`);
+console.log('Player Board:');
+printBoard(playerBoard);
+console.log('Bomb Board:');
+printBoard(bombBoard);
 
 flipTile(playerBoard, bombBoard, 0, 0);
 console.log('Updated Player Board:');
