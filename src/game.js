@@ -11,10 +11,11 @@
 import {Board} from './board';
 
 class Game {
-	constructor(numberOfRows, numberOfColumns, numberOfBombs) {
+	constructor(numberOfRows, numberOfColumns, numberOfBombs, debug) {
 		this._numberOfRows = numberOfRows;
 		this._numberOfColumns = numberOfColumns;
 		this._board = new Board(numberOfRows, numberOfColumns, numberOfBombs);
+		this._debug = debug;
 	}
 
 	playMove(rowIndex, columnIndex) {
@@ -28,10 +29,15 @@ class Game {
 			if (this._board.playerBoard[rowIndex][columnIndex] === 'B') {
 				console.log('Game Over!');
 			} else if (!this._board.hasSafeTiles()) {
-				console.log('You Won!');	
+				console.log('You Won!');
 			} else {
 				console.log('Current Board:');
 				this._board.print();
+
+				if (this._debug) {
+					console.log('Bomb Board:');
+					this._board.printBombBoard();
+				}
 			}
 		}
 	}

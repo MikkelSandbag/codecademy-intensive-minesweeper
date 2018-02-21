@@ -66,6 +66,10 @@ export class Board {
 		console.log(this._playerBoard.map(row => row.join(' | ')).join('\n'));
 	}
 
+	printBombBoard() {
+		console.log(this._bombBoard.map(row => row.join(' | ')).join('\n'))
+	}
+
 	static generatePlayerBoard(numberOfRows, numberOfColumns) {
 		const board = [];
 
