@@ -1,9 +1,11 @@
 export class Board {
 	constructor(numberOfRows, numberOfColumns, numberOfBombs) {
+		this._numberOfRows = numberOfRows;
+		this._numberOfColumns = numberOfColumns;
 		this._numberOfBombs = numberOfBombs;
-		this._numberOfTiles = (numberOfRows * numberOfColumns);
-		this._playerBoard = Board.generatePlayerBoard(numberOfRows, numberOfColumns);
-		this._bombBoard = Board.generateBombBoard(numberOfRows, numberOfColumns, numberOfBombs);
+		this._numberOfTiles = (this._numberOfRows * this._numberOfColumns);
+		this._playerBoard = Board.generatePlayerBoard(this._numberOfRows, this._numberOfColumns);
+		this._bombBoard = Board.generateBombBoard(this._numberOfRows, this._numberOfColumns, this._numberOfBombs);
 	}
 
 	get playerBoard() {
